@@ -3,7 +3,6 @@ import cors from "cors"
 let app = express()
 app.use(express.json())
 app.use(cors())
-app.use(express.static("dist"))
 
 // import router
 import Userrouter from "./routes/user.routes.js"
