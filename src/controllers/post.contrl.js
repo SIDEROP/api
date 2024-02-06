@@ -29,7 +29,10 @@ export let userPostDelete = async (req,res)=>{
     res.status(200).json(resDb)
 }
 
-// api http://localhost:4000/api/post/delete/65c069eb4abfd07a0510f10b
 
-
-// let resDb = await PostModel.findOne({user_id:"65bf69fe95cac7cc2e36723b"}).populate("user_id")
+// create post user
+export let userPostEdit = async (req,res)=>{
+    let {title,comment,_id} = req.body
+    let resDb = await PostModel.updateOne({_id:_id},{$set:{title,comment}})
+    res.status(200).json(resDb)
+}
