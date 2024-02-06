@@ -35,3 +35,13 @@ export let userDataAdd = async (req,res)=>{
     console.log(dbret.acknowledged)
     res.status(200).json(dbret)
 }
+
+
+// serch api 
+export let userSearch = async (req,res)=>{
+    let {name} = req.params
+    console.log(name)
+    
+    let dbret = await userModel.find({username:{$regex:name}})
+    res.status(200).json(dbret)
+}
